@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>მადლობა, {{ name }}!</h2>
+<p>თქვენი შეკვეთა მიღებულია. გადასახდელი თანხა: <strong>{{ total }} ₾</strong></p>
+<a class="btn" href="{{ url_for('index') }}">მაღაზიაში დაბრუნება</a>
+{% endblock %}

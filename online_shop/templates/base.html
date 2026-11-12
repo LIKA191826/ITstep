@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <title>ონლაინ მაღაზია</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; }
+        header { background: #333; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+        header a { color: white; text-decoration: none; margin-left: 20px; }
+        main { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .card { background: white; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+        .price { color: #2a7d2e; font-weight: bold; font-size: 18px; }
+        .btn { display: inline-block; background: #2a7d2e; color: white; padding: 8px 16px; border: none; border-radius: 4px; text-decoration: none; cursor: pointer; margin-top: 10px; }
+        .btn.red { background: #c0392b; }
+        table { width: 100%; background: white; border-collapse: collapse; }
+        th, td { padding: 10px; border-bottom: 1px solid #ddd; text-align: left; }
+        input { padding: 8px; width: 100%; box-sizing: border-box; margin-bottom: 10px; }
+        form.search { display: flex; gap: 10px; margin-bottom: 20px; }
+        form.search input { margin: 0; }
+    </style>
+</head>
+<body>
+    <header>
+        <strong>🛒 ონლაინ მაღაზია</strong>
+        <nav>
+            <a href="{{ url_for('index') }}">პროდუქტები</a>
+            <a href="{{ url_for('cart') }}">კალათა</a>
+            <a href="{{ url_for('order_list') }}">შეკვეთები</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

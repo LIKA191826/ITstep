@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>კალათა</h2>
+{% if items %}
+<table>
+    <tr><th>პროდუქტი</th><th>რაოდენობა</th><th>ფასი</th><th></th></tr>
+    {% for item in items %}
+    <tr>
+        <td>{{ item.product.name }}</td>
+        <td>{{ item.qty }}</td>
+        <td>{{ item.price }} ₾</td>
+        <td><a class="btn red" href="{{ url_for('remove', product_id=item.product.id) }}">-1</a></td>
+    </tr>
+    {% endfor %}
+    <tr><th colspan="2">სულ</th><th>{{ total }} ₾</th><th></th></tr>
+</table>
+<h3>შეკვეთის გაფორმება</h3>
+<form method="post" action="{{ url_for('checkout') }}">
+    <input type="text" name="name" placeholder="სახელი, გვარი" required>
+    <input type="text" name="address" placeholder="მისამართი" required>
+    <button class="btn" type="submit">შეკვეთა</button>
+</form>
+{% else %}
+<p>კალათა ცარიელია</p>
+<a class="btn" href="{{ url_for('index') }}">პროდუქტებზე დაბრუნება</a>
+{% endif %}
+{% endblock %}
